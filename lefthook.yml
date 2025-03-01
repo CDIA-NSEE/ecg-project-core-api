@@ -1,0 +1,14 @@
+commit-msg:
+  commands:
+    lint-commit-msg:
+      run: pnpx commitlint --edit
+
+pre-commit:
+    parallel: true
+    commands:
+     lint:
+       glob: "*.ts"
+       run: pnpm lint {staged_files}
+     format:
+      glob: "*.ts"
+      run: pnpm format {staged_files}
